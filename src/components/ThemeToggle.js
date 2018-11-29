@@ -4,17 +4,17 @@ import {AppProvider, AppConsumer} from '../Context';
 export default class ThemeToggle extends Component {
     render() {
         return(
-            <div className="col-sm-4">
+            <div className="col-6 col-sm-6 col-md-4 col-lg-2">
                 <AppConsumer>
                     {(context) => (
                         <React.Fragment>
-                        <div class="toggle">
-                            <span class="toggleLabel" >light</span>
-                            <label class="switch">
+                        <div className="toggle">
+                            <span className="toggleLabel" >light</span>
+                            <label className="switch">
                               <input type="checkbox" onClick={context.updateTheme}/>
-                              <span class="slider"></span>
+                              <span className="slider"></span>
                             </label>
-                            <span class="toggleLabel">dark</span>
+                            <span className="toggleLabel">dark</span>
                         </div>
                         </React.Fragment>
                     )}
