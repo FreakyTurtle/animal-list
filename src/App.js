@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {AppProvider, AppConsumer} from './Context';
-import ThemeToggle from './components/ThemeToggle';
+import TopBar from './components/TopBar';
 
 
 class App extends Component {
@@ -11,10 +11,8 @@ class App extends Component {
         <AppProvider>
             <AppConsumer>{c => (
                 <div className={"App " + c.state.theme}>
-                  <h2>Animal List</h2>
-                  <p> Theme: {c.state.theme}</p>
-                  <ThemeToggle/>
-                  </div>
+					<TopBar />
+                 </div>
             )}
             </AppConsumer>
         </AppProvider>

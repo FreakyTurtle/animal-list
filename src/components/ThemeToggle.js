@@ -4,11 +4,10 @@ import {AppProvider, AppConsumer} from '../Context';
 export default class ThemeToggle extends Component {
     render() {
         return(
-            <div className="example">
+            <div className="col-sm-4">
                 <AppConsumer>
                     {(context) => (
                         <React.Fragment>
-                        <p>Toggle Theme</p>
                         <div class="toggle">
                             <span class="toggleLabel" >light</span>
                             <label class="switch">
