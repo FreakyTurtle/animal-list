@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import {AppProvider, AppConsumer} from '../Context';
 
 export default class IndividualList extends Component {
-    
+
     constructor (props) {
         super(props);
         this.renderIndividuals = this.renderIndividuals.bind(this);
     }
-    
+
     renderIndividuals (context) {
         const animals = context.state.animalTypes[context.state.selectedType].animals;
         console.log(animals);
@@ -22,7 +22,7 @@ export default class IndividualList extends Component {
         });
         return ret;
     }
-    
+
     render () {
         return (
             <AppConsumer>
@@ -30,11 +30,11 @@ export default class IndividualList extends Component {
                     (context) => {
                         return(
                             <React.Fragment>
-                                <table>
+                                <table className={context.state.theme === "light" ? "table" : "table table-striped"}>
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Age</th> 
+                                        <th>Age</th>
                                         <th></th>
                                     </tr>
                                 </thead>

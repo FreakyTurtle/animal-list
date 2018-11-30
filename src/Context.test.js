@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import {AppProvider, AppConsumer} from './Context';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+class TestComponent extends Component {
+	render(){
+		return (
+			<AppConsumer>
+			{
+				context => (
+					<React.Fragment>
+						<div className="output">
+						{JSON.stringify(this.context.animalTypes)}
+						</div>
+						<button className="addspecies">Add Species</button>
+					</React.Fragment>
+				)
+			}
+			</AppConsumer>
+		);
+	}
+}
+
+describe('<TestComponent/>', () => {
+	it('Testing the starting state', () => {
+		const div = document.createElement('div');
+	    ReactDOM.render(<TestComponent />, div);
+	    ReactDOM.unmountComponentAtNode(div);
+	});
 });

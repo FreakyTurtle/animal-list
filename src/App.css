@@ -14,7 +14,7 @@
 /* Body spacing etc */
 
 .mainbody {
-    padding-top: 28px; 
+    padding-top: 28px;
 }
 
 .form-card {
@@ -54,8 +54,34 @@ td.clickable:hover, .button:hover{
     margin-right: 6px;
     display: inline-block;
 }
+.button.disabled {
+	background-color: #ccc !important;
+	color: white !important;
+	border: none !important;
+}
+.button.disabled:hover{
+	background-color: #ccc !important;
+	color: white !important;
+	cursor: default;
+}
 .buttonholder{
     text-align: right;
+}
+
+.suggestions {
+	font-size: 0.85em;
+}
+.species-search, .species-suggestion{
+	margin-bottom: 0px;
+}
+.species-suggestion {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	transition: 0.5s all;
+}
+.species-suggestion.clickable:hover {
+	cursor: pointer;
+	background-color: #ccc;
 }
 
 /* Top Bar */
@@ -134,38 +160,34 @@ label {
     .toggleLabel{
         display: none;
     }
-} 
+}
 
-/* Theming */
+/* Light Theming */
 
 .light, .light .form-card .button {
 	background-color: white;
     color: rgb(16, 70, 168);
-}
-.dark, .dark .form-card .button{
-    background-color: rgb(16, 70, 168);
-    color: white;
 }
 
 .light .topbar {
 	background-color: rgb(16, 70, 168);
     color: white;
 }
-.dark .topbar {
-	background-color: white;
-    color: rgb(16, 70, 168);
-}
 .light td.clickable:hover, .light .button:hover {
     background-color: rgb(16, 70, 168);
     color: white;
 }
-.dark td.clickable:hover,  .dark .button:hover {
-    background-color: white;
-    color: rgb(16, 70, 168);
-}
 .light .button, .light .form-card .button, .dark .form-card .button:hover{
     border: 1px solid rgb(16, 70, 168);
 }
-.dark .button, .dark .form-card .button{
-    border: 1px solid white;
+
+.light thead {
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	padding: 12px;
+	background-color: rgb(16, 70, 168);
+	color: white;
+}
+.light th {
+	border-radius: 0px;
 }

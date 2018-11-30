@@ -76,7 +76,7 @@ class AppProvider extends Component {
 					canCry: false,
 					diet: "lettuce",
                     feature: "Swim",
-                    count: 4, 
+                    count: 4,
                     animals: [
                         {
         					name: "Rafael",
@@ -107,6 +107,7 @@ class AppProvider extends Component {
         this.selectTypeToAdd = this.selectTypeToAdd.bind(this);
         this.selectType = this.selectType.bind(this);
         this.removeIndividual = this.removeIndividual.bind(this);
+		this.addSpecies = this.addSpecies.bind(this);
     }
 
     updateTheme = () => {
@@ -129,7 +130,7 @@ class AppProvider extends Component {
         });
     }
     removeIndividual = (index) => {
-        // remove an animal 
+        // remove an animal
         const type = this.state.selectedType;
         const newTypes = Object.assign({}, this.state.animalTypes);
         let newCount = this.state.animalTypes[type].count - 1;
@@ -140,7 +141,7 @@ class AppProvider extends Component {
         });
     }
     selectTypeToAdd = (type) => {
-        // When the + button is pressed to add an individual animal, this sets the type of that animal 
+        // When the + button is pressed to add an individual animal, this sets the type of that animal
         // it is also used as an indicator for when to show that form
         this.setState({
             addingType: type
@@ -152,6 +153,13 @@ class AppProvider extends Component {
             selectedType: type
         });
     }
+	addSpecies = (obj) => {
+		let newTypes = Object.assign({}, this.state.animalTypes);
+		newTypes[obj.type.toLowerCase()] = obj;
+		this.setState({
+			animalTypes: newTypes
+		})
+	}
 
     render() {
         return (
@@ -161,7 +169,8 @@ class AppProvider extends Component {
                 addIndividual: this.addIndividual,
                 removeIndividual: this.removeIndividual,
                 selectTypeToAdd: this.selectTypeToAdd,
-                selectType: this.selectType
+                selectType: this.selectType,
+				addSpecies: this.addSpecies
             }}>
                 {this.props.children}
             </AppContext.Provider>

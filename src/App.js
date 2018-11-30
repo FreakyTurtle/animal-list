@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './DarkTheme.css';
 import {AppProvider, AppConsumer} from './Context';
 import TopBar from './components/TopBar';
 import AnimalList from './components/AnimalList';

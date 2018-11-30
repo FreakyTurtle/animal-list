@@ -3,12 +3,12 @@ import {AppProvider, AppConsumer} from '../Context';
 import ReactTooltip from 'react-tooltip';
 
 export default class AnimalList extends Component {
-    
+
     constructor (props) {
         super(props);
         this.renderTypes = this.renderTypes.bind(this);
     }
-    
+
     renderTypes (context) {
         const keys =  Object.keys(context.state.animalTypes);
         let ret = keys.map((key, index) => {
@@ -25,23 +25,23 @@ export default class AnimalList extends Component {
                     <td>{type.count}</td>
                     <td><span className="button" onClick={(e) => {context.selectTypeToAdd(type.type.toLowerCase())}}><i className="fas fa-plus"></i></span></td>
                 </tr>
-                
+
             )
         });
         return ret;
     }
-    
+
     render () {
         return (
             <AppConsumer>
                 {
                     (context) => {
                         return(
-                            <table>
+                            <table className={context.state.theme === "light" ? "table" : "table table-striped"}>
                             <thead>
                                 <tr>
-                                    <th>Animal Type</th>
-                                    <th>Diet</th> 
+                                    <th>Animal Species</th>
+                                    <th>Diet</th>
                                     <th>Quantity</th>
                                     <th></th>
                                 </tr>
