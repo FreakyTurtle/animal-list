@@ -53,7 +53,7 @@ export default class AddType extends Component {
 		this.setState({
 			searchTerm: e.target.value
 		}, () => {
-			fetch('http://api.gbif.org/v1/species/search?limit=5&q='+this.state.searchTerm)
+			fetch('https://api.gbif.org/v1/species/search?limit=5&q='+this.state.searchTerm)
 			.then(response => response.json())
 			.then((response) => {
 				let newArray = [];
